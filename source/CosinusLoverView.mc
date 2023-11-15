@@ -3,11 +3,11 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-class CosinusLoverView extends WatchUi.WatchFace {
+class CosinusLoverView extends WatchUi.View {
   var animator;
   var ratio = 0.9;
   function initialize() {
-    WatchFace.initialize();
+    View.initialize();
     animator = new Animator();
   }
 
@@ -26,10 +26,8 @@ class CosinusLoverView extends WatchUi.WatchFace {
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
-    animator.timerCounter++;
-
-    // Call the parent onUpdate function to redraw the layout
     View.onUpdate(dc);
+    animator.timerCounter++;
 
     dc.setPenWidth(1);
 
@@ -61,8 +59,8 @@ class CosinusLoverView extends WatchUi.WatchFace {
     drawText(dc, -1, -0.1, Graphics.FONT_SYSTEM_XTINY, "  π ", Graphics.TEXT_JUSTIFY_VCENTER| Graphics.TEXT_JUSTIFY_LEFT);
     drawText(dc, -1, 0.1, Graphics.FONT_SYSTEM_XTINY, "180°",  Graphics.TEXT_JUSTIFY_VCENTER|Graphics.TEXT_JUSTIFY_LEFT);
 
-    drawText(dc, 1, -0.1, Graphics.FONT_SYSTEM_XTINY, "2π  ", Graphics.TEXT_JUSTIFY_VCENTER| Graphics.TEXT_JUSTIFY_RIGHT);
-    drawText(dc, 1, 0.1, Graphics.FONT_SYSTEM_XTINY, "360°", Graphics.TEXT_JUSTIFY_VCENTER| Graphics.TEXT_JUSTIFY_RIGHT);
+    drawText(dc, 1, -0.1, Graphics.FONT_SYSTEM_XTINY, "360°", Graphics.TEXT_JUSTIFY_VCENTER| Graphics.TEXT_JUSTIFY_RIGHT);
+    drawText(dc, 1, 0.1, Graphics.FONT_SYSTEM_XTINY, "2π  ", Graphics.TEXT_JUSTIFY_VCENTER| Graphics.TEXT_JUSTIFY_RIGHT);
 
     drawText(dc, 0, 0.9, Graphics.FONT_SYSTEM_XTINY, " 3π/2 ",Graphics.TEXT_JUSTIFY_VCENTER| Graphics.TEXT_JUSTIFY_RIGHT );
     drawText(dc, 0, 0.9, Graphics.FONT_SYSTEM_XTINY, " 270°", Graphics.TEXT_JUSTIFY_VCENTER| Graphics.TEXT_JUSTIFY_LEFT);
